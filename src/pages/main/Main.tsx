@@ -6,7 +6,9 @@ import { MAIN_TEXT, ODE_BEAUTY_SPACE } from '../../constants/texts';
 
 export const Main:React.FC = () => {
 
-    useEffect(() => { M.Parallax.init(document.querySelectorAll('.parallax'))}, [])
+    useEffect(() => {
+        M.Parallax.init(document.querySelectorAll('.parallax'));
+    }, [])
 
     return (
         <main>
