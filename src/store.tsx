@@ -2,6 +2,15 @@ import React, { createContext, useReducer } from 'react';
 import allEyesImage from '../src/images/products/allEyes.jpg';
 import ceramidinImage from '../src/images/products/ceramidin.jpg';
 
+interface IInitialProps {
+    products: object[],
+    customers: string[],
+}
+interface IContextProps {
+    state: IInitialProps;
+    dispatch: ({ type }:{type:string}) => void;
+}
+
 const initialState = {
     products: [
         {
@@ -62,11 +71,12 @@ const initialState = {
     ],
     customers: ['Ted'],
 };
-const store = createContext(initialState);
-const { Provider } = store;
+const AppContext = createContext({} as IContextProps);
+const { Provider } = AppContext;
 
 const StateProvider = ( { children }:any ) => {
-    const [state, dispatch] = useReducer((state: { customers: string[]; }, action: { type: string; payload: string[]; }) =>
+    // TODO Use if want change state
+    const [state, dispatch] = useReducer((state:IInitialProps, action:any) =>
     {
         switch(action.type) {
             case 'SET_CUSTOMER':
@@ -76,8 +86,7 @@ const StateProvider = ( { children }:any ) => {
         }
     }, initialState);
 
-    // @ts-ignore
-    return <Provider value={{ state, dispatch }}>{children}</Provider>;
+    return <Provider value={{ state, dispatch }} >{children}</Provider>;
 };
 
-export { store, StateProvider }
+export { AppContext, StateProvider }

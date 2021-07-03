@@ -29,15 +29,6 @@ export const Header:React.FC = () => {
                     <li><a href='/' className="white-text">{ MAIN }</a></li>
                     <li><a href='/products' className="white-text">{ PRODUCTS }</a></li>
                 </ul>
-
-
-                {/*<div className="nav-wrapper #bcaaa4 brown lighten-3">*/}
-                {/*    <a href="/" className="brand-logo">ODE</a>*/}
-                {/*    <ul id="nav-mobile" className="right hide-on-med-and-down">*/}
-                {/*        <li><a href='/'>{ MAIN }</a></li>*/}
-                {/*        <li><a href='/products'>{ PRODUCTS }</a></li>*/}
-                {/*    </ul>*/}
-                {/*</div>*/}
             </nav>
         </header>
     );

@@ -1,11 +1,10 @@
 import React, { useContext } from 'react';
 import Card from '../../components/productCard/Card';
-import { store } from '../../store';
+import { AppContext } from '../../store';
 import './products.scss';
 
 export const AboutUs:React.FC = () => {
-    // @ts-ignore
-    const { state } = useContext(store);
+    const { state } = useContext(AppContext);
     const { products } = state;
 
     return (
