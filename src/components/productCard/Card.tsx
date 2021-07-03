@@ -1,4 +1,5 @@
 import React from 'react';
+import Modal from "../modal/Modal";
 import './card.scss';
 
 interface ICardProps {
@@ -7,16 +8,20 @@ interface ICardProps {
     description: string
 }
 
-const Card:React.FC<ICardProps> = ({ image, title, description }) => (
-    <div className="card">
-        <div className="card-image">
-            <img alt='product' src={image}/>
-            <span className="card-title">{title}</span>
+const Card:React.FC<ICardProps> = ({ image, title, description }) => {
+
+    return (
+        <div className="card">
+            <div data-target="modal1" className="card-image modal-trigger">
+                <img alt='product' src={image}/>
+                <span className="card-title">{title}</span>
+            </div>
+            <div className="card-content">
+                <p>{description}</p>
+            </div>
+            <Modal />
         </div>
-        <div className="card-content">
-            <p>{description}</p>
-        </div>
-    </div>
-)
+    )
+}
 
 export default Card;
